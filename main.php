@@ -32,13 +32,13 @@ h2{
 </style>
 
 <body>
-				<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                    <a class="navbar-brand" href="#">
+				<nav class="navbar navbar-expand-lg " style="color:white; background-color :#34465d;">
+                    <a class="navbar-brand"  href="#">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKixQnBkZmXC7i2WHREw4doK1PTRfcc03N3s4PU_c-EJco73BW" width="30" height="30"  alt="">
-                            <b>FRIENDSBOOK</b>
+                            <b style="color:white; "> FRIENDSBOOK</b>
                           </a>
 						  </nav>
-				<div class="row justify-content-around">
+				<div class="row justify-content-around" >
                       <div class="col-md-6">
                           <img src="https://st2.depositphotos.com/1071184/6467/v/950/depositphotos_64676765-stock-illustration-social-media-network-connection-concept.jpg" height="650" width="750">
                        </div>        

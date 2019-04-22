@@ -27,7 +27,7 @@ if(!isset($_SESSION['user_email'])){
 </head>
 <body>
 <div class="row">
-	<div id="insert_post" class="col-sm-12">
+	<div id="insert_post" class="col-sm-12" >
 		<center>
 		<form action="home.php?id=<?php echo $user_id; ?>" method="post" id="f" enctype="multipart/form-data">
 		<textarea class="form-control" id="content" rows="4" name="content" placeholder="What's in your mind?"></textarea><br>
@@ -41,7 +41,7 @@ if(!isset($_SESSION['user_email'])){
 	</div>
 </div>
 <div class="row">
-	<div class="col-sm-12">
+	<div class="col-sm-12" style="background-color:#adb9d3;">
 		<center><h2><strong>News Feed</strong></h2><br></center>
 		<?php echo get_posts(); ?>
 	</div>

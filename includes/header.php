@@ -2,7 +2,7 @@
 include("includes/connection.php");
 include("functions/functions.php");
 ?>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" style="color:white; background-color :#34465d; ">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" aria-expanded="false">
@@ -11,7 +11,7 @@ include("functions/functions.php");
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="home.php">Coding Cafe</a>
+			<a style="color:white;"class="navbar-brand" href="home.php">FriendsBook</a>
 		</div>
 
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -45,10 +45,10 @@ include("functions/functions.php");
 			$posts = mysqli_num_rows($run_posts);
 			?>
 
-	        <li><a href='profile.php?<?php echo "u_id=$user_id" ?>'><?php echo "$first_name"; ?></a></li>
-	       	<li><a href="home.php">Home</a></li>
-			<li><a href="members.php">Find People</a></li>
-			<li><a href="messages.php?u_id=new">Messages</a></li>
+	        <li><a style="color:white;"	href='profile.php?<?php echo "u_id=$user_id" ?>'><?php echo "$first_name"; ?></a></li>
+	       	<li><a style="color:white;"href="home.php">Home</a></li>
+			<li><a style="color:white;"href="members.php">Find People</a></li>
+			<li><a style="color:white;" href="messages.php?u_id=new">Messages</a></li>
 
 
 					<?php
@@ -61,7 +61,7 @@ include("functions/functions.php");
 									<a href='my_post.php?u_id=$user_id'>My Posts <span class='badge badge-secondary'>$posts</span></a>
 								</li>
 								<li>
-									<a href='edit_profile.php?u_id=$user_id'>Edit Account</a>
+									<a href='edit_account.php?u_id=$user_id'>Edit Account</a>
 								</li>
 								<li role='separator' class='divider'></li>
 								<li>
