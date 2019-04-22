@@ -212,7 +212,7 @@ function single_post() {
 		$post_date = $row_posts['post_date'];
 		$user_id = $row_posts['user_id'];
 
-		$user = "select * from users where user_id='$user_id and posts='yes'";
+		$user = "select * from users where user_id='$user_id' and posts='yes'";
 
 		$run_user = mysqli_query($con, $user);
 		$row_user = mysqli_fetch_array($run_user);
@@ -222,9 +222,12 @@ function single_post() {
 
 		$user_com = $_SESSION['user_email'];
 
-		$get_com = "select * from users where user_email='$user_com";
+		$get_com = "select * from users where user_email='$user_com'";
 
 		$run_com = mysqli_query($con, $get_com);
+		// if (!$run_com) {
+		// 	echo" mysqli_error($con)";
+		// }
 		$row_com = mysqli_fetch_array($run_com);
 
 		$user_com_name = $row_com['user_name'];
@@ -237,18 +240,18 @@ function single_post() {
 		$run_user = mysqli_query($con, $get_posts);
 
 		$post_id = $_GET['post_id'];
-		$get_user = "select * from posts where post_id='$post_id ";
+		$post = $_GET['post_id'];
+		$get_user = "select * from posts where post_id='$post'";
 		$run_user = mysqli_query($con, $get_user);
 		$row = mysqli_fetch_array($run_user);
 
 		$p_id = $row['post_id'];
+		$content = substr($row_posts['post_content'], 0,40);
 		if($p_id != $post_id) {
-			echo "hello";
 			echo "<script>alert('ERROR');</script>";
 			echo "<script>window.open('home.php', '_self');</script>";
 		} else {
 			if($content=="No" && strlen($upload_image) >= 1){
-				echo "hello";
 
 				echo"
 				<div class='row'>
@@ -271,7 +274,6 @@ function single_post() {
 								<img id='posts-img' src='imagepost/$upload_image' style='height:350px;'>
 							</div>
 						</div><br>
-						<a href='single.php?post_id=$post_id' style='float:right;'><button class='btn btn-info'>Comment</button></a><br>
 					</div>
 					<div class='col-sm-3'>
 					</div>
@@ -302,7 +304,6 @@ function single_post() {
 								<img id='posts-img' src='imagepost/$upload_image' style='height:350px;'>
 							</div>
 						</div><br>
-						<a href='single.php?post_id=$post_id' style='float:right;'><button class='btn btn-info'>Comment</button></a><br>
 					</div>
 					<div class='col-sm-3'>
 					</div>
@@ -332,14 +333,13 @@ function single_post() {
 								<h3><p>$content</p></h3>
 							</div>
 						</div><br>
-						<a href='single.php?post_id=$post_id' style='float:right;'><button class='btn btn-info'>Comment</button></a><br>
 					</div>
 					<div class='col-sm-3'>
 					</div>
 				</div><br><br>
 				";
 			}
-			// include("comments.php");
+			include("comments.php");
 
 			echo "
 				<div class='row'>
@@ -347,7 +347,12 @@ function single_post() {
 					<div class='panel panel-info'>
 						<div class='panel-body'>
 							<form action='' method='POST' class='form-inline'>
-								<textarea placeholder='Write your comment here' class='pb-cmnt-textarea' name='comment'></textarea>
+								<textarea placeholder='Write your comment here' class='pb-cmnt-textarea' name='comment' style='
+								resize: none;
+								padding :  20px;
+								height: 110px;
+								width : 100%;
+								border : 1px solid #F2F2F2;'></textarea>
 								<button class='btn btn-info pull-right' name='reply'>Comment</button>
 							</form>    
 						</div>
@@ -363,9 +368,10 @@ function single_post() {
 					echo "<script>alert('Enter your comment');</script>";
 					echo "<script>window.open('single.php?post_id=$post_id', '_self');</script>";
 				} else {
-					$insert = "insert into comments (post_id, user_id, comment, comment_author,date) values('$post_id','$user_id','$comment'
-					'$user_com_name	',NOW())";
+					$insert = "insert into comments (post_id, user_id, comment, comment_author,date) values('$post_id','$user_id','$comment','$user_com_name',NOW())";
 					$run = mysqli_query($con, $insert);
+					
+
 					echo "<script>alert('Your comment added');</script>";
 					echo "<script>window.open('single.php?post_id=$post_id', '_self');</script>"; 	
 				}
