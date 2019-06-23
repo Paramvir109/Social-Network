@@ -20,6 +20,7 @@ if(!isset($_SESSION['user_email'])){
 </head>
 <body>
 <style>
+	
 
 </style>
 <div class="row">

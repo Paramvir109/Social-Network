@@ -20,31 +20,33 @@ if(!isset($_SESSION['user_email'])){
 </head>
 <body>
 <div class="row">
-<div class="col-sm-12">
-    <center><h2>Find New People</h2></center><br><br>
-   
-    <div class="row">
-        <div class="col-sm-4">
+    <div class="col-sm-12">
+        <center><h2>Find New People</h2></center><br><br>
+    
+        <div class="row">
             <div class="col-sm-4">
-                <form class="search_form" action="">
-                    <input type="text" placeholder="Search Friend" name="search_user">
-                    <button class="btn btn-info" type="submit" name="search_user_btn">
-                        Search
-                    </button>
-
-                </form>
-
             </div>
-            <div class="col-sm-4">
+                <div class="col-sm-4">
+                    <form class="search_form" action="">
+                        <input type="text" placeholder="Search Friend" name="search_user">
+                        <button class="btn btn-info" type="submit" name="search_user_btn">
+                            Search
+                        </button>
 
-            </div>
+                    </form>
 
-        </div><br><br>
+                </div>
+                <div class="col-sm-4">
+
+                </div>  
+
+            <br><br>
+            
+
+        </div>
         <?php search_user(); ?>
 
     </div>
-
-</div>
 
 
 </div>

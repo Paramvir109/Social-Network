@@ -382,8 +382,8 @@ function single_post() {
 function search_user(){
 	global $con;
 	if(isset($_GET['search_user_btn'])){
-		$search_query=httmlentities($_GET['search_btn']);
-		$get_user="select * from users where f_name like '%$seach_query%' OR l_name like '%$seach_query%' OR user_name like '%$seach_query%'";
+		$search_query=htmlentities($_GET['search_user']);
+		$get_user="select * from users where f_name like '%$search_query%' OR l_name like '%$search_query%' OR user_name like '%$search_query%'";
 
 
 	}
@@ -400,7 +400,7 @@ function search_user(){
 		$user_image=$row_user['user_image'];
 		
 		echo "
-		<div class='row>
+		<div class='row'>
 		<div class='col-sm-3'>
 		</div>
 		<div class='col-sm-6'>
@@ -437,6 +437,7 @@ function results(){
 	}
 	$get_posts= "select * from posts where post_content like '%$search_query' OR upload_image like '%$search_query'";
 	$run_posts= mysqli_query($con, $get_posts);
+
 	while($row_posts= mysqli_fetch_array($run_posts)){
 		$post_id=$row_posts['post_id'];
 		$user_id=$row_posts['user_id'];
